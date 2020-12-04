@@ -19,8 +19,8 @@ static int my_proc_show(struct seq_file *m, void *v){
 	struct sysinfo info_sistema;
 	si_meminfo(&info_sistema);
 	unidad = (unsigned long long)info_sistema.mem_unit;
-	ram_total = (info_sistema.totalram*unidad)/(1024);
-	ram_libre = (info_sistema.freeram*unidad)/(1024);
+	ram_total = (info_sistema.totalram*unidad)/(1024*1024);
+	ram_libre = (info_sistema.freeram*unidad)/(1024*1024);
 	porcentaje = ((ram_total - ram_libre)*100)/ram_total;
 	seq_printf(m, "porcentaje ocupado %ld ram total: %ld ram libre %ld",porcentaje,ram_total,ram_libre);
 	return 0;

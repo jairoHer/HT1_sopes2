@@ -49,7 +49,7 @@ static struct file_operations my_fops={
 
 static int __init test_init(void){
 	struct proc_dir_entry *entry;
-	printk(KERN_INFO "inicio modulo ram \n")
+	printk(KERN_INFO "inicio modulo ram \n");
 	entry = proc_create("ram-modulo",0777,NULL, &my_fops);
 	if(!entry){
 		return -1;
